@@ -1,0 +1,11 @@
+"use strict";
+exports.__esModule = true;
+var Navigator_1 = require("./Navigator");
+var routeTypes = require("./route-types");
+var carNavigator = new Navigator_1.Navigator('Street 1', new routeTypes.CarRoute());
+var walkingNavigator = new Navigator_1.Navigator('Street 2', new routeTypes.WalkingRoute());
+var dynamicNavigator = new Navigator_1.Navigator('Street 3', new routeTypes.BicycleRoute());
+carNavigator.buildRoute();
+setTimeout(function () { return walkingNavigator.buildRoute(); }, 1000);
+setTimeout(function () { return dynamicNavigator.buildRoute(); }, 2000);
+setTimeout(function () { return dynamicNavigator.changeRouteType(new routeTypes.CarRoute()); }, 3000);

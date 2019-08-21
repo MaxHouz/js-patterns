@@ -1,0 +1,16 @@
+"use strict";
+exports.__esModule = true;
+var cars = require("./cars");
+var decorators = require("./decorators");
+var defaultHatchback = new cars.Hatchback();
+var defaultSUV = new cars.SUV();
+var defaulSedan = new cars.Sedan();
+var turboSedan = new decorators.TurboEngineCarDecorator(new cars.Sedan());
+var automaticHatchback = new decorators.AutomaticTransmissionCarDecorator(defaultHatchback);
+var climateControlAutomaticSUV = new decorators.ClimateControlCarDecorator(new decorators.AutomaticTransmissionCarDecorator(new cars.SUV()));
+defaultHatchback.showCarInfo();
+automaticHatchback.showCarInfo();
+defaulSedan.showCarInfo();
+turboSedan.showCarInfo();
+defaultSUV.showCarInfo();
+climateControlAutomaticSUV.showCarInfo();
